@@ -20,8 +20,8 @@ const Grid = ({ data }: GridProps) => {
   };
 
   return (
-    <div className="mx-20 mb-10">
-      <div className="overflow-x-auto overflow-y-auto max-h-screen">
+    <div className="container">
+      <div className="overflow-x-auto overflow-y-auto h-screen">
         <div className="min-w-full grid grid-cols-12 text-left text-sm bg-gray-100">
           <div className="py-3 border border-gray-200"></div>
           <div className="ps-2 py-3 border border-gray-200 col-span-5">

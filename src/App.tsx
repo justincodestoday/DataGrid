@@ -7,12 +7,10 @@ import Grid from "./components/Grid";
 
 const App = () => {
   return (
-    <>
-      <div className="mx-20 my-4">
-        <h1 className="text-3xl font-bold">My Data Grid</h1>
-      </div>
+    <div className="mx-16 my-4">
+      <h1 className="text-3xl font-bold mb-4">My Data Grid</h1>
       <Grid data={products} />
-    </>
+    </div>
   );
 };
 
