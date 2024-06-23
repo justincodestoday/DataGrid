@@ -86,7 +86,7 @@ const Grid = ({ data }: GridProps) => {
                 {product.QuantityPerUnit}
               </div>
               {product.expanded && (
-                <div className="col-span-full border border-gray-200 px-6 py-3">
+                <div className="col-span-full border border-gray-200 ps-6 py-3">
                   <GridDetailRowProps dataItem={product} />
                 </div>
               )}
