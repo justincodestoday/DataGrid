@@ -1,3 +1,17 @@
+# Data Grid Demo
+
+This demo showcases a data grid built using React, TypeScript, and Tailwind CSS. The pictures below are screenshots of the grid collapsed and expanded.
+
+<u>Grid collapsed</u><br/>
+![Grid collapsed](./src/assets/images/grid-collapsed.png)
+
+<u>Grid expanded</u><br/>
+![Grid expanded](./src/assets/images/grid-expanded.png)
+
+**Note: This project is open-source and available under the MIT License.**
+
+Special thanks to the React, TypeScript, and Tailwind CSS communities for their excellent documentation and support.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
