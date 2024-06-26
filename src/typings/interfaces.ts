@@ -1,37 +1,43 @@
-export interface ProductCategory {
-  CategoryID?: number;
-  CategoryName?: string;
-  Description?: string;
-  details?: any;
+interface ProductCategory {
+  categoryId: number;
+  categoryName: string;
+  description: string;
+  details: any;
 }
 
-export interface Product {
-  ProductID: number;
-  ProductName?: string;
-  SupplierID?: number;
-  CategoryID?: number;
-  QuantityPerUnit?: string;
-  UnitPrice?: number;
-  UnitsInStock?: number;
-  UnitsOnOrder?: number;
-  ReorderLevel?: number;
-  Discontinued?: boolean;
-  Category?: ProductCategory;
-  expanded?: boolean;
-  inEdit?: boolean | string;
-  locked?: boolean;
+export type PartialProductCategory = Partial<ProductCategory>;
+
+interface Product {
+  productId: number;
+  productName: string;
+  supplierId: number;
+  categoryId: number;
+  quantityPerUnit: string;
+  unitPrice: number;
+  unitsInStock: number;
+  unitsOnOrder: number;
+  reorderLevel: number;
+  discontinued: boolean;
+  category: PartialProductCategory;
+  expanded: boolean;
+  inEdit: boolean | string;
+  locked: boolean;
 }
 
-export interface columnInterface {
-  title?: string;
-  field?: string;
-  show?: boolean;
-  filter?: "boolean" | "numeric" | "text" | "date" | undefined;
-  minWidth?: number;
-  minGridWidth?: number;
-  locked?: boolean;
-  width?: string | number;
+export type PartialProduct = Partial<Product>;
+
+interface ColumnInterface {
+  title: string;
+  field: string;
+  show: boolean;
+  filter: "boolean" | "numeric" | "text" | "date";
+  minWidth: number;
+  minGridWidth: number;
+  locked: boolean;
+  width: string | number;
 }
+
+export type PartialColumnInterface = Partial<ColumnInterface>;
 
 export interface OrderShipAddress {
   street: string;
@@ -42,14 +48,14 @@ export interface OrderShipAddress {
 }
 
 export interface OrderDetails {
-  productID: number;
+  productId: number;
   unitPrice: number;
   quantity: number;
   discount: number;
 }
-export interface Order {
+
+interface Order {
   orderID: number;
-  OrderID?: number;
   customerID: string;
   employeeID: number;
   orderDate?: Date;
@@ -61,6 +67,8 @@ export interface Order {
   shipAddress: OrderShipAddress;
   details: OrderDetails[];
 }
+
+export type PartialOrder = Partial<Order>;
 
 export interface Person {
   id: number;

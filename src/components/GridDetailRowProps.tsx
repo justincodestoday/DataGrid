@@ -1,28 +1,28 @@
 import React from "react";
-import { Product } from "../typings/interfaces";
+import { PartialProduct } from "../typings/interfaces";
 
 interface GridDetailRowProps {
-  dataItem: Product;
+  dataItem: PartialProduct;
 }
 
 const GridDetailRowProps = ({ dataItem }: GridDetailRowProps) => {
   return (
     <section>
       <p className="mb-3">
-        <strong>In Stock:</strong> {dataItem.UnitsInStock} units
+        <strong>In Stock:</strong> {dataItem.unitsInStock} units
       </p>
       <p className="mb-3">
-        <strong>On Order:</strong> {dataItem.UnitsOnOrder} units
+        <strong>On Order:</strong> {dataItem.unitsOnOrder} units
       </p>
       <p className="mb-3">
-        <strong>Reorder Level:</strong> {dataItem.ReorderLevel} units
+        <strong>Reorder Level:</strong> {dataItem.reorderLevel} units
       </p>
       <p className="mb-3">
-        <strong>Discontinued:</strong> {dataItem.Discontinued ? "Yes" : "No"}
+        <strong>Discontinued:</strong> {dataItem.discontinued ? "Yes" : "No"}
       </p>
       <p>
-        <strong>Category:</strong> {dataItem.Category?.CategoryName} -{" "}
-        {dataItem.Category?.Description}
+        <strong>Category:</strong> {dataItem.category?.categoryName} -{" "}
+        {dataItem.category?.description}
       </p>
     </section>
   );

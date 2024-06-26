@@ -1,50 +1,50 @@
 import React, { useState } from "react";
 
 import GridDetailRowProps from "./GridDetailRowProps";
-import { Product } from "../typings/interfaces";
+import { PartialProduct } from "../typings/interfaces";
 
 interface GridProps {
-  data: Product[];
+  data: PartialProduct[];
 }
 
 const Grid = ({ data }: GridProps) => {
-  const [products, setProducts] = useState<Product[]>(data);
+  const [products, setProducts] = useState<PartialProduct[]>(data);
 
   const expandChange = (productId: number) => {
     const productData = products.map((product) =>
-      product.ProductID === productId
+      product.productId === productId
         ? { ...product, expanded: !product.expanded }
-        : product
+        : product,
     );
     setProducts(productData);
   };
 
   return (
     <div className="container">
-      <div className="overflow-x-auto overflow-y-auto h-screen">
-        <div className="min-w-full grid grid-cols-12 text-left text-sm bg-gray-100">
-          <div className="py-3 border border-gray-200"></div>
-          <div className="ps-2 py-3 border border-gray-200 col-span-5">
+      <div className="h-screen overflow-x-auto overflow-y-auto">
+        <div className="grid min-w-full grid-cols-12 bg-gray-100 text-left text-sm">
+          <div className="border border-gray-200 py-3"></div>
+          <div className="col-span-5 border border-gray-200 py-3 ps-2">
             Product
           </div>
-          <div className="ps-2 py-3 border border-gray-200">ID</div>
-          <div className="ps-2 py-3 border border-gray-200">Unit Price</div>
-          <div className="ps-2 py-3 border border-gray-200 col-span-4">
+          <div className="border border-gray-200 py-3 ps-2">ID</div>
+          <div className="border border-gray-200 py-3 ps-2">Unit Price</div>
+          <div className="col-span-4 border border-gray-200 py-3 ps-2">
             Qty Per Unit
           </div>
         </div>
 
         {products.map((product, index) => (
           <div
-            className={`min-w-full grid grid-cols-12 text-left text-sm ${
+            className={`grid min-w-full grid-cols-12 text-left text-sm ${
               index % 2 === 0 ? "bg-white" : "bg-gray-100"
             }`}
           >
-            <React.Fragment key={product.ProductID}>
-              <div className="py-3 border border-gray-200 flex justify-center">
+            <React.Fragment key={product.productId}>
+              <div className="flex justify-center border border-gray-200 py-3">
                 <button
-                  className="focus:outline-none text-lg"
-                  onClick={() => expandChange(product.ProductID)}
+                  className="text-lg focus:outline-none"
+                  onClick={() => expandChange(product.productId!)}
                 >
                   {product.expanded ? (
                     <svg
@@ -73,20 +73,20 @@ const Grid = ({ data }: GridProps) => {
                   )}
                 </button>
               </div>
-              <div className="ps-2 py-3 border border-gray-200 col-span-5">
-                {product.ProductName}
+              <div className="col-span-5 border border-gray-200 py-3 ps-2">
+                {product.productName}
               </div>
-              <div className="ps-2 py-3 border border-gray-200">
-                {product.ProductID}
+              <div className="border border-gray-200 py-3 ps-2">
+                {product.productId}
               </div>
-              <div className="ps-2 py-3 border border-gray-200">
-                {product.UnitPrice}
+              <div className="border border-gray-200 py-3 ps-2">
+                {product.unitPrice}
               </div>
-              <div className="ps-2 py-3 border border-gray-200 col-span-4">
-                {product.QuantityPerUnit}
+              <div className="col-span-4 border border-gray-200 py-3 ps-2">
+                {product.quantityPerUnit}
               </div>
               {product.expanded && (
-                <div className="col-span-full border border-gray-200 ps-6 py-3">
+                <div className="col-span-full border border-gray-200 py-3 ps-6">
                   <GridDetailRowProps dataItem={product} />
                 </div>
               )}
